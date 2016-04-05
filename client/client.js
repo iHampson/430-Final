@@ -1,3 +1,3 @@
-init = () => {
+(init = () => {
   console.log("js loaded!");
-}();
+})();
