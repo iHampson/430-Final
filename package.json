@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A competitive multiplayer game where players need to recreate an image before everyone else to get the most points.",
   "main": "./src/server.js",
-  "repository" : {
+  "repository": {
     "type": "git",
     "url": "https://github.com/iHampson/430-Final"
   },
@@ -15,6 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.13.4",
+    "jade": "^1.11.0",
     "socket.io": "^1.4.5"
   },
   "devDependencies": {
