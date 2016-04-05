@@ -1,10 +1,8 @@
 // Will serve as my router file
-var router = app => {
-  app.get('/' (req, res) => {
-
-  });
-  app.get('/client/client.js', (req, res) => {
-
+var router = (app,fs) => {
+  // var client = fs.readFileSync(__dirname + "/../client/client.html");
+  app.get('/', (req, res) => {
+    res.render('app');
   });
 };
 

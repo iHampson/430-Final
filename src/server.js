@@ -7,7 +7,11 @@ var io = socket.io(server);
 
 var router = require('./router.js');
 var port = process.env.PORT || process.env.NODE_PORT || 3000;
+
 app.use('/assets', express.static(path.resolve(__dirname+'/../client/')));
+
+app.set('view engine', 'jade');
+app.set('views', `${__dirname}/views`);
 
 router(app);
 

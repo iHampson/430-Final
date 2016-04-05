@@ -1,0 +1,15 @@
+extends ./base.jade
+block append style
+  link(rel="stylesheet", type="text/css", href="/assets/style.css")
+block body
+  canvas#host(width=200px, height=200px)
+  if !opponents || opponents.length == 0
+    div.waiting
+      h3 Waiting for opponents
+  else
+    each val in opponents
+      - var socketID = val.id
+      - var socketOwner = val.name
+      canvas.viewOthers(id= socketID, owner= socketOwner, width= 200, height= 200)
+block scripts
+  script(src="/assets/client.js")
