@@ -2,7 +2,7 @@ extends ./base.jade
 block append style
   link(rel="stylesheet", type="text/css", href="/assets/style.css")
 block body
-  canvas#host(width=200px, height=200px)
+  canvas#host(width="200px", height="200px")
   if !opponents || opponents.length == 0
     div.waiting
       h3 Waiting for opponents
