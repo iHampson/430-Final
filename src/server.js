@@ -5,6 +5,8 @@ var mongoose = require('mongoose');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+var router = require('./router.js');
+var sockets = require('./socketServ.js');
 
 var dbURL = process.env.MONGOLAB_URI || "mongodb://localhost/DomoMaker";
 var db = mongoose.connect(dbURL, err =>{
@@ -14,8 +16,6 @@ var db = mongoose.connect(dbURL, err =>{
   }
 });
 
-var router = require('./router.js');
-var sockets = require('./socketServ.js');
 var port = process.env.PORT || process.env.NODE_PORT || 3000;
 
 app.use('/assets', express.static(path.resolve(__dirname+'/../client/')));
