@@ -1,4 +1,4 @@
-var init = io => {
+var sockets = io => {
   var onJoin =socket => {
     socket.on('join', data=> {
       socket.join('room1');
@@ -19,4 +19,4 @@ var init = io => {
   });
 };
 
-module.exports.sockets = init;
+module.exports = sockets;
