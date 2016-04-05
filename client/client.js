@@ -50,7 +50,7 @@ window.onload = () => {
       // });
   }
 
-  getElem("#signupSubmit").on("click", function(e) {
+  getElem("#signupSubmit").addEventListener("click", function(e) {
       e.preventDefault();
 
       getElem("#domoMessage").animate({width:'hide'},350);
@@ -70,7 +70,7 @@ window.onload = () => {
       return false;
   });
 
-  getElem("#loginSubmit").on("click", function(e) {
+  getElem("#loginSubmit").addEventListener("click", function(e) {
       e.preventDefault();
 
       getElem("#domoMessage").animate({width:'hide'},350);
