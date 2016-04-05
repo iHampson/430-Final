@@ -9,4 +9,4 @@ var router = (app) => {
   });
 };
 
-module.exports.router = router;
+module.exports = router;
