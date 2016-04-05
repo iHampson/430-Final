@@ -11,11 +11,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server.js"
   },
+  "keywords": [
+    "Node",
+    "MVC",
+    "Socket.io"
+  ],
   "author": "Ian Hampson",
   "license": "MIT",
   "dependencies": {
     "express": "^4.13.4",
     "jade": "^1.11.0",
+    "mongoose": "^4.4.11",
     "socket.io": "^1.4.5"
   },
   "devDependencies": {
