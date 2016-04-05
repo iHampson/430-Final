@@ -1,4 +1,6 @@
 // Will serve as my router file
+var controllers = require('./controllers');
+
 var router = (app) => {
   // var client = fs.readFileSync(__dirname + "/../client/client.html");
   app.get('/', controllers.Account.loginPage);
