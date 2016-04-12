@@ -61,7 +61,7 @@ window.onload = () => {
           return false;
       }
       var formData = new FormData(getElem("#signupForm"));
-      sendAjax(getElem("#dignupForm").action, formData);
+      sendAjax(getElem("#signupForm").action, formData);
 
       return false;
   });
