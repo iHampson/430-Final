@@ -24,7 +24,7 @@ var login = (req,res) => {
       if(err || !account) return res.status(401).json({error: "Wrong user name or password."});
 
       req.session.account = account.toAPI();
-      res.json({redirect: '/game'});
+      res.json({redirect: '/lounge'});
   });
 };
 
@@ -50,7 +50,7 @@ var signup = (req, res) => {
         return res.status(400).json({error: "There was an error."});
       }
 
-      req.session.accout = newAccount.toAPI();
+      req.session.account = newAccount.toAPI();
       res.json({redirect: '/game'});
     });
 
