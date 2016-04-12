@@ -1,5 +1,8 @@
 extends ./base.jade
 block append body
+  block nav
+    a(href="/game") to game
+    a(href="/leaders") to Leaderboard
   h1 Welcome ${val.name}
   #info
     - var wins = val.wins
