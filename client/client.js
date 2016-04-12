@@ -9,7 +9,7 @@ window.onload = () => {
   var handleError = (message) => {
       console.log(message);
       getElem("#errorMsg").innerHTML = message;
-      getElem("#errDiv").style.display = block;
+      getElem("#errDiv").style.display = "block";
   };
 
   var sendAjax = (action, data) => {
@@ -53,7 +53,7 @@ window.onload = () => {
       e.preventDefault();
 
       if(getElem("#user").value === '' || getElem("#pass").value === '' || getElem("#pass2").value === '') {
-          document.alert("All fields are required");
+          handleError("All fields are required");
           return false;
       }
 
