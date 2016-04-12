@@ -8,5 +8,5 @@ canvas{
   position: fixed;
   right: 10px;
   bottom: 30px;
-  display: hidden;
+  display: none;
 },
