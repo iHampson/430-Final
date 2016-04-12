@@ -19,7 +19,7 @@ window.onload = () => {
     xhr.send(data);
 
     xhr.onload = () => {
-      if (request.status >= 200 && request.status < 400) {
+      if (xhr.status >= 200 && xhr.status < 400) {
         var data = JSON.parse(xhr.responseText);
         window.location = data.redirect;
       }
