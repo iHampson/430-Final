@@ -58,6 +58,7 @@ var signup = (req, res) => {
 };
 
 var loungePage = (req, res) => {
+  Account.AccountModel.findByUsername(req);
   res.render('/lounge', {val: docs});
 };
 

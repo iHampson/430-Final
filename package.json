@@ -8,7 +8,7 @@
     "url": "https://github.com/iHampson/430-Final"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jshint ./src",
     "start": "node src/server.js"
   },
   "keywords": [
@@ -19,10 +19,15 @@
   "author": "Ian Hampson",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.15.0",
+    "compression": "^1.6.1",
+    "connect-redis": "^3.0.2",
+    "cookie-parser": "^1.4.1",
+    "csurf": "^1.8.3",
     "express": "^4.13.4",
+    "express-session": "^1.13.0",
     "grindstone": "^1.2.5",
     "jade": "^1.11.0",
-    "jshint": "^2.9.1",
     "mongoose": "^4.4.11",
     "socket.io": "^1.4.5"
   },

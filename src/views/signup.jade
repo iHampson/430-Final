@@ -16,6 +16,6 @@ block body
       label(for="pass2") Password:
       input#pass2(type="password", name="pass2", placeholder="retype password")
       input(type="hidden", name="_csrf", value="#{csrfToken}")
-      a#signupSubmit(class="formSubmit", href="#") Sign up
+      submit#signupSubmit(class="formSubmit") Sign up
 block scripts
   script(src="/assets/client.js")

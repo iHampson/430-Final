@@ -62,7 +62,7 @@ AccountSchema.statics.generateHash = function(password, callback) {
 	crypto.pbkdf2(password, salt, iterations, keyLength, function(err, hash){
 		return callback(salt, hash.toString('hex'));
 	});
-}
+};
 
 AccountSchema.statics.authenticate = (username, password, callback) => {
 	return AccountModel.findByUsername(username, (err, doc) => {
