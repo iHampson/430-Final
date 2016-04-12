@@ -48,7 +48,7 @@ window.onload = () => {
       // });
   };
 
-  getElem("#signupForm") && getElem("#signupForm").addEventListener("onSubmit", (e) => {
+  getElem("#signupSubmit") && getElem("#signupSubmit").addEventListener("click", (e) => {
       e.preventDefault();
 
       if(getElem("#user").value === '' || getElem("#pass").value === '' || getElem("#pass2").value === '') {
@@ -60,13 +60,13 @@ window.onload = () => {
           handleError("RAWR! Passwords do not match");
           return false;
       }
-      var formData = new FormData(e.target);
-      sendAjax(e.target.action, formData);
+      var formData = new FormData(getElem("#signupForm"));
+      sendAjax(getElem("#dignupForm").action, formData);
 
       return false;
   });
 
-  getElem("#loginForm") && getElem("#loginForm").addEventListener("onSubmit", function(e) {
+  getElem("#loginSubmit") && getElem("#loginSubmit").addEventListener("click", function(e) {
       e.preventDefault();
 
       // getElem("#domoMessage").animate({width:'hide'},350);
@@ -76,8 +76,8 @@ window.onload = () => {
           return false;
       }
 
-      var formData = new FormData(e.target);
-      sendAjax(e.target.action, formData);
+      var formData = new FormData(getElem("#loginForm"));
+      sendAjax(getElem("#loginForm").action, formData);
 
       return false;
   });
