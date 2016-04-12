@@ -13,6 +13,7 @@ window.onload = () => {
   };
 
   var sendAjax = (action, data) => {
+    console.log(data);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', action);
     xhr.setRequestHeader('Content-type', 'json');

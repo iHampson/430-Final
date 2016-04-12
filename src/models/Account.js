@@ -14,6 +14,7 @@ var AccountSchema = new mongoose.Schema({
         unique: true,
         match: /^[A-Za-z0-9_\-\.]{1,16}$/
     },
+
 	  salt: {
 		    type: Buffer,
         required: true
@@ -48,11 +49,9 @@ AccountSchema.methods.validatePassword = function(password, callback) {
 };
 
 AccountSchema.statics.findByUsername = function(name, callback) {
-
     var search = {
         username: name
     };
-
     return AccountModel.findOne(search, callback);
 };
 
@@ -62,6 +61,10 @@ AccountSchema.statics.generateHash = function(password, callback) {
 	crypto.pbkdf2(password, salt, iterations, keyLength, function(err, hash){
 		return callback(salt, hash.toString('hex'));
 	});
+};
+
+AccountSchema.statics.findTop = (howMany, callback) => {
+    // AccountModel.find().select("name wins loses").exec(callback);
 };
 
 AccountSchema.statics.authenticate = (username, password, callback) => {
