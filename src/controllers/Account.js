@@ -61,8 +61,14 @@ var loungePage = (req, res) => {
   res.render('/lounge', {val: docs});
 };
 
+var leaderPage = (req, res) => {
+  res.render('/leader'); // Will need to look for the top W/L records later
+};
+
 module.exports.loginPage = loginPage;
 module.exports.signupPage = signupPage;
 module.exports.logout = logout;
+module.exports.lounge = loungePage;
+module.exports.leaders = leaderPage;
 module.exports.login = login;
 module.exports.signup = signup;
