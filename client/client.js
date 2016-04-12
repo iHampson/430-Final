@@ -51,12 +51,12 @@ window.onload = () => {
   getElem("#signupSubmit") && getElem("#signupSubmit").addEventListener("click", (e) => {
       e.preventDefault();
 
-      if(getElem("#user").val() === '' || getElem("#pass").val() === '' || getElem("#pass2").val() === '') {
+      if(getElem("#user").value === '' || getElem("#pass").value === '' || getElem("#pass2").value === '') {
           document.alert("All fields are required");
           return false;
       }
 
-      if(getElem("#pass").val() !== getElem("#pass2").val()) {
+      if(getElem("#pass").value !== getElem("#pass2").value) {
           handleError("RAWR! Passwords do not match");
           return false;
       }
@@ -71,7 +71,7 @@ window.onload = () => {
 
       // getElem("#domoMessage").animate({width:'hide'},350);
 
-      if(getElem("#user").val() === '' || getElem("#pass").val() === '') {
+      if(getElem("#user").value === '' || getElem("#pass").value === '') {
           handleError("RAWR! Username or password is empty");
           return false;
       }
