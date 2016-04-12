@@ -16,7 +16,6 @@ window.onload = () => {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', action);
     xhr.setRequestHeader('Content-type', 'json');
-    xhr.send(data);
 
     xhr.onload = () => {
       if (xhr.status >= 200 && xhr.status < 400) {
@@ -29,6 +28,8 @@ window.onload = () => {
       var messageObj = JSON.parse(xhr.responseText);
       handleError(messageObj.error);
     };
+
+    xhr.send(data);
       // $.ajax({
       //     cache: false,
       //     type: "POST",
