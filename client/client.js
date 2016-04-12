@@ -61,7 +61,7 @@ window.onload = () => {
           return false;
       }
 
-      sendAjax(getElem("#signupForm").attr("action"), getElem("#signupForm").serialize());
+      sendAjax(getElem("#signupForm").action, getElem("#signupForm").serialize());
 
       return false;
   });
@@ -76,7 +76,7 @@ window.onload = () => {
           return false;
       }
 
-      sendAjax(getElem("#loginForm").attr("action"), getElem("#loginForm").serialize());
+      sendAjax(getElem("#loginForm").action, getElem("#loginForm").serialize());
 
       return false;
   });
