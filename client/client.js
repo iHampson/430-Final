@@ -6,10 +6,11 @@ window.onload = () => {
     return document.querySelector(selector);
   };
 
-  function handleError(message) {
-      getElem("#errorMessage").text(message);
-      getElem("#domoMessage").animate({width:'toggle'},350);
-  }
+  var handleError(message) => {
+      console.log(message);
+      getElem("#errorMsg").innerHTML = message;
+      getElem("#errDiv").style.display = block;
+  };
 
   function sendAjax(action, data) {
     var xhr = new XMLHttpRequest();
@@ -21,13 +22,10 @@ window.onload = () => {
         data: data,
         dataType: "json",
         success: function(result, status, xhr) {
-            getElem("#domoMessage").animate({width:'hide'},350);
-
             window.location = result.redirect;
         },
         error: function(xhr, status, error) {
             var messageObj = JSON.parse(xhr.responseText);
-
             handleError(messageObj.error);
         }
     });
@@ -53,10 +51,8 @@ window.onload = () => {
   getElem("#signupSubmit") && getElem("#signupSubmit").addEventListener("click", function(e) {
       e.preventDefault();
 
-      getElem("#domoMessage").animate({width:'hide'},350);
-
       if(getElem("#user").val() == '' || getElem("#pass").val() == '' || getElem("#pass2").val() == '') {
-          handleError("RAWR! All fields are required");
+          document.alert("All fields are required");
           return false;
       }
 

@@ -1,0 +1,8 @@
+extends ./base.jade
+block append body
+  h1 Welcome ${val.name}
+  #info
+    - var wins = val.wins
+    - var loses = val.loses
+    h3 Your record:
+block scripts

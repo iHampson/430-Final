@@ -40,7 +40,7 @@ var signup = (req, res) => {
       username: req.body.username,
       salt: salt,
       password: hash,
-    }
+    };
 
     var newAccount = new Account.AccountModel(accountData);
 
@@ -57,8 +57,12 @@ var signup = (req, res) => {
   });
 };
 
+var loungePage = (req, res) => {
+  res.render('/lounge', {val: docs});
+};
+
 module.exports.loginPage = loginPage;
-module.exports.signupPage = signupPage
+module.exports.signupPage = signupPage;
 module.exports.logout = logout;
 module.exports.login = login;
 module.exports.signup = signup;

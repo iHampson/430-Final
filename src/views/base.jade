@@ -5,5 +5,9 @@ html(lang="en")
     script(src="/assets/grindstone-v1.2.5.min.js")
     link(rel="shortcut icon", href="/assets/img/favicon.png")
     block style
+      link(rel="stylesheet", type="text/css", href="/assets/style.css")
   block body
+  block errMsg
+    #errDiv
+      h3#errorMsg Error messages go here.
   block scripts
