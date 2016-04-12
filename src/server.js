@@ -3,6 +3,7 @@ var path = require('path');
 var express = require('express');
 var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
+var compression = require('compression');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
