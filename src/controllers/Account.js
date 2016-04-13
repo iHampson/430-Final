@@ -7,7 +7,7 @@ var loginPage = (req,res) => {
 };
 
 var signupPage = (req,res) => {
-  res.render('signup', {csrfToken: req.csrfToken()});
+  return res.render('signup', {csrfToken: req.csrfToken()});
 };
 
 var logout = (req,res) => {
@@ -51,7 +51,7 @@ var signup = (req, res) => {
       }
 
       req.session.account = newAccount.toAPI();
-      res.json({redirect: '/game'});
+      return res.json({redirect: '/game'});
     });
 
   });
