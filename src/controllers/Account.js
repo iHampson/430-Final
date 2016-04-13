@@ -35,15 +35,16 @@ var signup = (req, res) => {
   if(req.body.pass !== req.body.pass2)
     return res.status(400).json({error: "Passwords are not the same."});
 
+  console.log("has all fields");
   Account.AccountModel.generateHash(req.body.pass, (salt, hash) => {
     var accountData = {
       username: req.body.username,
       salt: salt,
       password: hash,
     };
-
+  console.log("Made a hash");
     var newAccount = new Account.AccountModel(accountData);
-
+  console.log("created account");
     newAccount.save(err => {
       if(err){
         console.log(err);
