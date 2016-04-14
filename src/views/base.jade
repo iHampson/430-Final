@@ -5,8 +5,12 @@ html(lang="en")
     script(src="/assets/grindstone-v1.2.5.min.js")
     link(rel="shortcut icon", href="/assets/img/favicon.png")
     block style
-      link(rel="stylesheet", type="text/css", href="/assets/style.css")
-  block body
+      //- link(rel="stylesheet", type="text/css", href="/assets/style.css")
+      link(rel="stylesheet", type="text/css", href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.0.20/css/bulma.min.css")
+
+  section.hero.is-fullheight.is-success
+    block body
+
   block errMsg
     #errDiv
       h3#errorMsg Error messages go here.

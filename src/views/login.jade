@@ -1,17 +1,22 @@
 extends ./base.jade
 block body
-  nav
-    .navlink
-      a(href="/login") Login
-    .navlink
-      a(href="/signup") Sign up
-  section#login
-    form#loginForm(class="mainForm", name="loginForm", action="/login", method="POST")
-      label(for="username") Username:
-      input#user(type="text", name="username", placeholder="username")
-      label(for="pass") Password:
-      input#pass(type="password", name="pass", placeholder="password")
-      input#csrf(type="hidden", name="_csrf", value="#{csrfToken}")
-      a#loginSubmit(class="formSubmit", href="#") Sign in
+  .hero-header
+
+  .hero-content
+    .container
+      form#loginForm(class="mainForm", name="loginForm", action="/login", method="POST")
+
+        label(for="username").label Username:
+        p.control: input#user(type="text", name="username", placeholder="username").input
+
+        label(for="pass").label Password:
+        p.control: input#pass(type="password", name="pass", placeholder="password").input
+
+        input#csrf(type="hidden", name="_csrf", value="#{csrfToken}")
+        .columns
+          .column.is-offset-1: p.control: a#loginSubmit(class="formSubmit", href="#").button.is-primary Sign In
+          .column: p.control: a(href="/signup").button.is-primary Sign Up
+  .hero-footer
+    h1.subtitle.is-6 Made by IAN HAMPSON
 block append scripts
     script(src="/assets/client.js")

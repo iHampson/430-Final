@@ -1,13 +1,19 @@
 extends ./base.jade
 block append body
-  canvas#host(width="200px", height="200px")
-  if !opponents || opponents.length == 0
-    div.waiting
-      h3 Waiting for opponents
-  else
-    each val in opponents
-      - var socketID = val.id
-      - var socketOwner = val.name
-      canvas.viewOthers(id= socketID, owner= socketOwner, width= 200, height= 200)
+  .hero-header: include ./navBar.jade
+
+  .hero-content
+    .container: canvas#host(width="200px", height="200px")
+
+    if !opponents || opponents.length == 0
+      div.waiting.container
+        h3.title.is-3 Waiting for opponents
+    else
+      each val in opponents
+        - var socketID = val.id
+        - var socketOwner = val.name
+        canvas.viewOthers(id= socketID, owner= socketOwner, width= 200, height= 200)
+  .hero-footer
+    h1.subtitle.is-6 Made by IAN HAMPSON
 block scripts
   script(src="/assets/game.js")

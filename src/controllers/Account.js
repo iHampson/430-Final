@@ -24,7 +24,7 @@ var login = (req,res) => {
       if(err || !account) return res.status(401).json({error: "Wrong user name or password."});
 
       req.session.account = account.toAPI();
-      res.json({redirect: '/lounge'});
+      res.json({redirect: '/game'});
   });
 };
 
@@ -59,11 +59,13 @@ var signup = (req, res) => {
 };
 
 var loungePage = (req, res) => {
-  Account.AccountModel.findByUsername(req,(err,docs)=> {
+  console.log(req);
+  Account.AccountModel.findByUsername(req.session.account.username,(err,docs)=> {
     if(err && console.log(err)){
-      return res.status(400).json({error: "Could not find players"});
+      return res.status(400).json({error: "Could not find player"});
     }
-    res.render('lounge', {csrfToken: req.csrfToken(), val: docs});
+    // console.log(docs);
+    res.render('lounge', {csrfToken: req.csrfToken(), info: docs});
   });
 };
 
@@ -73,7 +75,7 @@ var leaderPage = (req, res) => {
     if(err && console.log(err)){
       return res.status(400).json({error: "Could not find players"});
     }
-    res.render('leader', {csrfToken: req.csrfToken(), docs: docs});
+    res.render('leader', {csrfToken: req.csrfToken(), info: docs});
   });
 };
 
