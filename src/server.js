@@ -61,9 +61,9 @@ app.use(session({
 }));
 app.use(csrf());
 app.use( (err, req, res, next) => {
-  if(err.code !== 'EBADCSRFTOKEN'){ return next(err); }
-  console.log(err);
-  return;
+  var whatIs = err.code !== 'EBADCSRFTOKEN';
+
+  whatIs ? next(err) : console.log(err);
 });
 
 app.set('view engine', 'jade');
