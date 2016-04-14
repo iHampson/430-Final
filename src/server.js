@@ -62,6 +62,7 @@ app.use(session({
 app.use(csrf());
 app.use( (err, req, res, next) => {
   if(err.code !== 'EBADCSRFTOKEN'){ return next(err); }
+  console.log(err);
   return;
 });
 
