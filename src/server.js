@@ -16,7 +16,7 @@ var io = require('socket.io')(server);
 var router = require('./router.js');
 var sockets = require('./socketServ.js');
 
-var dbURL = process.env.MONGOLAB_URI || "mongodb://localhost/DomoMaker";
+var dbURL = process.env.MONGOLAB_URI || "mongodb://heroku_gmfhmpmm:4d3p9ituf52ufm7vsiose0uegi@ds015740.mlab.com:15740/heroku_gmfhmpmm"; // || "mongodb://localhost/DomoMaker";
 var db = mongoose.connect(dbURL, err =>{
   if(err){
     console.log("Could not connect to database");
@@ -31,6 +31,9 @@ var redisURL = {
 var redisPass;
 if(process.env.REDISCLOUD_URL){
   redisURL = url.parse(process.env.REDISCLOUD_URL);
+  redisPass = redisURL.auth.split(":")[1];
+} else{
+  redisURL = url.parse("redis://rediscloud:87drGRg7yoVh0tI1@pub-redis-14912.us-east-1-3.4.ec2.garantiadata.com:14912");
   redisPass = redisURL.auth.split(":")[1];
 }
 

@@ -13,7 +13,8 @@ var router = (app) => {
   });
 
   app.post('/login', controllers.Account.login);
-  app.post('/signup', controllers.Account.signup);
+  app.post('/signup', () => {console.log(controllers.Account.signup);} ,controllers.Account.signup);
+
 };
 
 module.exports = router;

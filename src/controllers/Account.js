@@ -29,13 +29,13 @@ var login = (req,res) => {
 };
 
 var signup = (req, res) => {
+  console.log("has all fields");
   if(!req.body.username || !req.body.pass || !req.body.pass2)
     return res.status(400).json({error: "All fields are required."});
 
   if(req.body.pass !== req.body.pass2)
     return res.status(400).json({error: "Passwords are not the same."});
 
-  console.log("has all fields");
   Account.AccountModel.generateHash(req.body.pass, (salt, hash) => {
     var accountData = {
       username: req.body.username,
