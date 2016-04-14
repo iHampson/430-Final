@@ -14,28 +14,34 @@ window.onload = () => {
 
   var sendAjax = (action, data) => {
     console.log(action,data);
-    // nanoajax.ajax({url: action, method: 'POST', body: data}, (code, responseText, request) => {
-    //   // if(request.getResponseHeader() );
-    //   var bodyData = JSON.parse(responseText);
-    //   window.location = bodyData.data.redirect
-    // });
-    var xhr = new XMLHttpRequest();
-    xhr.open('post', action);
-    xhr.setRequestHeader('Content-type', 'json');
+    superagent
+      .post(action)
+      .send(data)
+      .set('Accept','application/json')
+      .end((err, res) => {
+        var data = JSON.parse(responseText);
+        err && !res.ok && handleError(data.error);
 
-    xhr.onload = () => {
-      if (xhr.status >= 200 && xhr.status < 400) {
-        var data = JSON.parse(xhr.responseText);
         window.location = data.redirect;
-      }
-    };
+      });
 
-    xhr.onerror = () => {
-      var messageObj = JSON.parse(xhr.responseText);
-      handleError(messageObj.error);
-    };
-
-    xhr.send(data);
+    // var xhr = new XMLHttpRequest();
+    // xhr.open('post', action);
+    // xhr.setRequestHeader('Content-type', 'json');
+    //
+    // xhr.onload = () => {
+    //   if (xhr.status >= 200 && xhr.status < 400) {
+    //     var data = JSON.parse(xhr.responseText);
+    //     window.location = data.redirect;
+    //   }
+    // };
+    //
+    // xhr.onerror = () => {
+    //   var messageObj = JSON.parse(xhr.responseText);
+    //   handleError(messageObj.error);
+    // };
+    //
+    // xhr.send(data);
       // $.ajax({
       //     cache: false,
       //     type: "POST",
@@ -68,7 +74,12 @@ window.onload = () => {
           return false;
       }
       console.log(getElem("#signupForm"));
-      var formData = new FormData(getElem("#signupForm"));
+      var formData = {
+        username: getElem("#user").value,
+        pass: getElem("#pass").value,
+        pass2: getElem("#pass2").value,
+        _csrf: getElem("#csrf").value,
+      };
       sendAjax(getElem("#signupForm").action, formData);
 
       return false;

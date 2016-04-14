@@ -29,7 +29,8 @@
     "grindstone": "^1.2.5",
     "jade": "^1.11.0",
     "mongoose": "^4.4.11",
-    "socket.io": "^1.4.5"
+    "socket.io": "^1.4.5",
+    "superagent": "^1.8.3"
   },
   "devDependencies": {
     "jshint": "^2.9.1"

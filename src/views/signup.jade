@@ -17,5 +17,5 @@ block body
       input#pass2(type="password", name="pass2", placeholder="retype password")
       input#csrf(type="hidden", name="_csrf", value="#{csrfToken}")
       a#signupSubmit(class="formSubmit" href="#") Sign up
-block scripts
+block append scripts
   script(src="/assets/client.js")
