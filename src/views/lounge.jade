@@ -3,9 +3,7 @@ block append body
   block nav
     a(href="/game") to game
     a(href="/leaders") to Leaderboard
-  h1 Welcome ${val.name}
+  h1 Welcome ${docs.name}
   #info
-    - var wins = val.wins
-    - var loses = val.loses
-    h3 Your record:
+    h3 Your record: ${docs.wins} : ${docs.loses}
 block scripts

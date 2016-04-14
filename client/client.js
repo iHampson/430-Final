@@ -18,29 +18,26 @@ window.onload = () => {
       .post(action)
       .send(data)
       .set('Accept','application/json')
+      .set('X-CSRF-Token', data._csrf)
       .end((err, res) => {
-        var data = JSON.parse(responseText);
-        err && !res.ok && handleError(data.error);
-
-        window.location = data.redirect;
+        err && !res.ok && handleError(res.error);
+        console.log(res);
+        window.location = res.body.redirect;
       });
 
     // var xhr = new XMLHttpRequest();
     // xhr.open('post', action);
     // xhr.setRequestHeader('Content-type', 'json');
-    //
     // xhr.onload = () => {
     //   if (xhr.status >= 200 && xhr.status < 400) {
     //     var data = JSON.parse(xhr.responseText);
     //     window.location = data.redirect;
     //   }
     // };
-    //
     // xhr.onerror = () => {
     //   var messageObj = JSON.parse(xhr.responseText);
     //   handleError(messageObj.error);
     // };
-    //
     // xhr.send(data);
       // $.ajax({
       //     cache: false,
@@ -50,12 +47,10 @@ window.onload = () => {
       //     dataType: "json",
       //     success: function(result, status, xhr) {
       //         getElem("#domoMessage").animate({width:'hide'},350);
-      //
       //         window.location = result.redirect;
       //     },
       //     error: function(xhr, status, error) {
       //         var messageObj = JSON.parse(xhr.responseText);
-      //
       //         handleError(messageObj.error);
       //     }
       // });
@@ -73,7 +68,6 @@ window.onload = () => {
           handleError("RAWR! Passwords do not match");
           return false;
       }
-      console.log(getElem("#signupForm"));
       var formData = {
         username: getElem("#user").value,
         pass: getElem("#pass").value,
@@ -88,14 +82,16 @@ window.onload = () => {
   getElem("#loginSubmit") && getElem("#loginSubmit").addEventListener("click", function(e) {
       e.preventDefault();
 
-      // getElem("#domoMessage").animate({width:'hide'},350);
-
       if(getElem("#user").value === '' || getElem("#pass").value === '') {
           handleError("RAWR! Username or password is empty");
           return false;
       }
 
-      var formData = new FormData(getElem("#loginForm"));
+      var formData = {
+        username: getElem("#user").value,
+        pass: getElem("#pass").value,
+        _csrf: getElem("#csrf").value,
+      };
       sendAjax(getElem("#loginForm").action, formData);
 
       return false;

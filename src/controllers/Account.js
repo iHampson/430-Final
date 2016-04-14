@@ -52,19 +52,29 @@ var signup = (req, res) => {
       }
 
       req.session.account = newAccount.toAPI();
-      return res.json({redirect: '/game'});
+      return res.json({redirect: '/lounge'});
     });
 
   });
 };
 
 var loungePage = (req, res) => {
-  Account.AccountModel.findByUsername(req);
-  res.render('/lounge', {val: docs});
+  Account.AccountModel.findByUsername(req,(err,docs)=> {
+    if(err && console.log(err)){
+      return res.status(400).json({error: "Could not find players"});
+    }
+    res.render('lounge', {csrfToken: req.csrfToken(), val: docs});
+  });
 };
 
 var leaderPage = (req, res) => {
-  res.render('/leader'); // Will need to look for the top W/L records later
+      // Will need to look for the top W/L records later
+  Account.AccountModel.findAll((err, docs)=> {
+    if(err && console.log(err)){
+      return res.status(400).json({error: "Could not find players"});
+    }
+    res.render('leader', {csrfToken: req.csrfToken(), docs: docs});
+  });
 };
 
 module.exports.loginPage = loginPage;

@@ -14,7 +14,6 @@ var AccountSchema = new mongoose.Schema({
         unique: true,
         match: /^[A-Za-z0-9_\-\.]{1,16}$/
     },
-
 	  salt: {
 		    type: Buffer,
         required: true
@@ -22,6 +21,14 @@ var AccountSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    wins: {
+      type: Number,
+      default: 0,
+    },
+    loses: {
+      type: Number,
+      default: 0,
     },
     createdData: {
         type: Date,
@@ -63,8 +70,8 @@ AccountSchema.statics.generateHash = function(password, callback) {
 	});
 };
 
-AccountSchema.statics.findTop = (howMany, callback) => {
-    // AccountModel.find().select("name wins loses").exec(callback);
+AccountSchema.statics.findAll = (callback) => {
+  AccountModel.find().select("username wins loses").exec(callback);
 };
 
 AccountSchema.statics.authenticate = (username, password, callback) => {
