@@ -35,7 +35,7 @@ window.onload = () => {
       handleError(messageObj.error);
     };
 
-    // xhr.send(data);
+    xhr.send(data);
       // $.ajax({
       //     cache: false,
       //     type: "POST",
@@ -67,6 +67,7 @@ window.onload = () => {
           handleError("RAWR! Passwords do not match");
           return false;
       }
+      console.log(getElem("#signupForm"));
       var formData = new FormData(getElem("#signupForm"));
       sendAjax(getElem("#signupForm").action, formData);
 

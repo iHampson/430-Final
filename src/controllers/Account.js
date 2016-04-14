@@ -7,7 +7,7 @@ var loginPage = (req,res) => {
 };
 
 var signupPage = (req,res) => {
-  return res.render('signup', {csrfToken: req.csrfToken()});
+  res.render('signup', {csrfToken: req.csrfToken()});
 };
 
 var logout = (req,res) => {
