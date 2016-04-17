@@ -1,13 +1,11 @@
 extends ./base.jade
 block append body
   .hero-header: include ./navBar.jade
-  
+
   .hero-content
     .container
       h1.title.is-2 Welcome #{info.username}
       #info
         h3.subtitle.is-4 Your record: #{info.wins} : #{info.loses}
 
-  .hero-footer
-    h1.subtitle.is-6 Made by IAN HAMPSON
-block scripts
+  block scripts

@@ -11,8 +11,11 @@ html(lang="en")
   section.hero.is-fullheight.is-success
     block body
 
-  block errMsg
-    #errDiv
-      h3#errorMsg Error messages go here.
+    block error
+      #errDiv.has-text-right.is-hidden
+        h3#errorMsg.title.is-3 Error messages go here.
+      .hero-footer
+        h1.subtitle.is-6 Made by IAN HAMPSON
+
   block scripts
     script(src="https://cdnjs.cloudflare.com/ajax/libs/superagent/1.2.0/superagent.min.js")
