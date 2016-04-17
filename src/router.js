@@ -3,9 +3,9 @@ var controllers = require('./controllers');
 
 var router = (app) => {
   // var client = fs.readFileSync(__dirname + "/../client/client.html");
-  app.get('/', controllers.Account.loginPage);
-  app.get('/login',controllers.Account.loginPage);
-  app.get('/signup', controllers.Account.signupPage);
+  app.get('/', controllers.loginPage);
+  app.get('/login',controllers.loginPage);
+  app.get('/signup', controllers.signupPage);
   app.get('/lounge', controllers.Account.lounge);
   app.get('/leaders', controllers.Account.leaders);
   app.get('/game', (req, res)=> {

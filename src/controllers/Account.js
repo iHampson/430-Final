@@ -2,14 +2,6 @@ var models = require('../models');
 
 var Account = models.Account;
 
-var loginPage = (req,res) => {
-  res.render('login', {csrfToken: req.csrfToken()});
-};
-
-var signupPage = (req,res) => {
-  res.render('signup', {csrfToken: req.csrfToken()});
-};
-
 var logout = (req,res) => {
   req.session.destroy();
   res.redirect('/');
@@ -79,8 +71,6 @@ var leaderPage = (req, res) => {
   });
 };
 
-module.exports.loginPage = loginPage;
-module.exports.signupPage = signupPage;
 module.exports.logout = logout;
 module.exports.lounge = loungePage;
 module.exports.leaders = leaderPage;
