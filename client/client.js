@@ -9,7 +9,7 @@ window.onload = () => {
   var handleError = (message) => {
       console.log(message);
       getElem("#errorMsg").innerHTML = message;
-      getElem("#errDiv").style.display = "block";
+      getElem("#errDiv").classList.contains('is-hidden') && getElem("#errDiv").classList.remove('is-hidden');
   };
 
   var sendAjax = (action, data) => {
@@ -20,9 +20,8 @@ window.onload = () => {
       .set('Accept','application/json')
       .set('X-CSRF-Token', data._csrf)
       .end((err, res) => {
-        err && !res.ok && handleError(res.error);
-        console.log(res);
-        window.location = res.body.redirect;
+        err && !res.ok && handleError(err);
+        res.body.redirect ?  window.location = res.body.redirect : console.log(res);
       });
 
     // var xhr = new XMLHttpRequest();
