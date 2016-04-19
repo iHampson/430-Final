@@ -23,36 +23,6 @@ window.onload = () => {
         err && !res.ok && handleError(err);
         res.body.redirect ?  window.location = res.body.redirect : console.log(res);
       });
-
-    // var xhr = new XMLHttpRequest();
-    // xhr.open('post', action);
-    // xhr.setRequestHeader('Content-type', 'json');
-    // xhr.onload = () => {
-    //   if (xhr.status >= 200 && xhr.status < 400) {
-    //     var data = JSON.parse(xhr.responseText);
-    //     window.location = data.redirect;
-    //   }
-    // };
-    // xhr.onerror = () => {
-    //   var messageObj = JSON.parse(xhr.responseText);
-    //   handleError(messageObj.error);
-    // };
-    // xhr.send(data);
-      // $.ajax({
-      //     cache: false,
-      //     type: "POST",
-      //     url: action,
-      //     data: data,
-      //     dataType: "json",
-      //     success: function(result, status, xhr) {
-      //         getElem("#domoMessage").animate({width:'hide'},350);
-      //         window.location = result.redirect;
-      //     },
-      //     error: function(xhr, status, error) {
-      //         var messageObj = JSON.parse(xhr.responseText);
-      //         handleError(messageObj.error);
-      //     }
-      // });
   };
 
   getElem("#signupSubmit") && getElem("#signupSubmit").addEventListener("click", (e) => {

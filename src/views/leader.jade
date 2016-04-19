@@ -2,7 +2,15 @@ extends ./base.jade
 block append body
   .hero-header: include ./navBar.jade
 
-  .hero-content
-    .container: h1.subtitle.is-2 Leader Board coming soon
+  .hero-content.is-center
+    .container
+      if !info || info.length == 0
+        h1.subtitle.is-2 Leader Board coming soon
+      else
+      each user in info
+        .card.is-warning
+          .content
+            p.has-text-centered #{user.username}
+            p.has-text-centered W: #{user.wins} / L: #{user.loses}
 
 block scripts

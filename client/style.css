@@ -2,11 +2,3 @@ canvas {
     border: 5px,
     border-color: black
 }
-
-#errDiv {
-  transition: display 0.2s linear,
-  position: fixed;
-  right: 10px;
-  bottom: 30px;
-  display: none;
-}
