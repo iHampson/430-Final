@@ -6,11 +6,10 @@ var router = (app) => {
   app.get('/', controllers.loginPage);
   app.get('/login',controllers.loginPage);
   app.get('/signup', controllers.signupPage);
+  app.get('/game', controllers.gamePage);
+
   app.get('/lounge', controllers.Account.lounge);
   app.get('/leaders', controllers.Account.leaders);
-  app.get('/game', (req, res)=> {
-    res.render("app");
-  });
 
   app.post('/login', controllers.Account.login);
   app.post('/signup', controllers.Account.signup);

@@ -34,9 +34,8 @@ var signup = (req, res) => {
       salt: salt,
       password: hash,
     };
-  console.log("Made a hash");
+
     var newAccount = new Account.AccountModel(accountData);
-  console.log("created account");
     newAccount.save(err => {
       if(err){
         console.log(err);
@@ -67,6 +66,11 @@ var leaderPage = (req, res) => {
     if(err && console.log(err)){
       return res.status(400).json({error: "Could not find players"});
     }
+    docs.sort((a,b) => {
+      if(a.wins > b.wins) return -1;
+      if(a.wins == b.wins) return 0;
+      if(a.wins < b.wins) return 1;
+    });
     res.render('leader', {csrfToken: req.csrfToken(), info: docs});
   });
 };
