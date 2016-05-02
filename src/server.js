@@ -72,8 +72,9 @@ app.set('views', `${__dirname}/views`);
 
 router(app);
 
-app.listen(port, err => {
+server.listen(port, err => {
   if(err) throw err;
   console.log(`Listening on port: ${port}`);
 });
-sockets(io);
+
+sockets.socketsSetup(io);

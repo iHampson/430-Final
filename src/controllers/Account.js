@@ -50,7 +50,7 @@ var signup = (req, res) => {
 };
 
 var loungePage = (req, res) => {
-  console.log(req);
+  // console.log(req);
   Account.AccountModel.findByUsername(req.session.account.username,(err,docs)=> {
     if(err && console.log(err)){
       return res.status(400).json({error: "Could not find player"});
@@ -75,8 +75,21 @@ var leaderPage = (req, res) => {
   });
 };
 
+var gamePage = (req, res) => {
+  Account.AccountModel.findByUsername(req.session.account.username,(err,docs)=> {
+
+    if(err && console.log(err)){
+      return res.status(400).json({error: "Could not find player"});
+    }
+
+    res.render('app', {info: docs});
+  });
+
+}
+
 module.exports.logout = logout;
 module.exports.lounge = loungePage;
 module.exports.leaders = leaderPage;
+module.exports.game = gamePage;
 module.exports.login = login;
 module.exports.signup = signup;

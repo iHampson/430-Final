@@ -6,8 +6,8 @@ var router = (app) => {
   app.get('/', controllers.loginPage);
   app.get('/login',controllers.loginPage);
   app.get('/signup', controllers.signupPage);
-  app.get('/game', controllers.gamePage);
 
+  app.get('/game', controllers.Account.game);
   app.get('/lounge', controllers.Account.lounge);
   app.get('/leaders', controllers.Account.leaders);
 
