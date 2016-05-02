@@ -1,18 +1,14 @@
 extends ./base.jade
 block append body
-  .hero-header: include ./navBar.jade
+
 
   .hero-content
-    .container: canvas#host(width="200px", height="200px")
+    - var name = info.username
+    div(id = name).container: canvas#host(width="300px", height="300px", data-name= name)
 
-    if !opponents || opponents.length == 0
-      div.waiting.container
-        h3.title.is-3 Waiting for opponents
-    else
-      each val in opponents
-        - var socketID = val.id
-        - var socketOwner = val.name
-        canvas.viewOthers(id= socketID, owner= socketOwner, width= 200, height= 200)
+    div.waiting.container
+      h3.title.is-3 Waiting for opponents
+
   block scripts
   script(src="/socket.io/socket.io.js")
   script(src="/assets/game.js")
