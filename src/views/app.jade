@@ -6,8 +6,8 @@ block append body
     - var name = info.username
     div(id = name).container: canvas#host(width="300px", height="300px", data-name= name)
 
-    div.waiting.container
-      h3.title.is-3 Waiting for opponents
+    #viewing.tile.is-ancestor
+      h3.title.is-3(id='waiting', style={'user-select': 'none', '-webkit-user-select': 'none'}) Waiting for opponents
 
   block scripts
   script(src="/socket.io/socket.io.js")

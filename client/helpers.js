@@ -1,6 +1,10 @@
 
 var getElem = selector => {
-  return document.querySelector(selector);
+  var temp = selector;
+  if(selector.charAt(0) != '#' && selector.charAt(0) != '.'){
+      temp = '#' + temp;
+  }
+  return document.querySelector(temp);
 };
 
 var handleError = (message) => {
