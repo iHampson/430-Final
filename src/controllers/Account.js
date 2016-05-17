@@ -82,10 +82,26 @@ var gamePage = (req, res) => {
       return res.status(400).json({error: "Could not find player"});
     }
 
-    res.render('app', {info: docs});
+    res.render('app', {csrfToken:req.csrfToken(), info: docs});
   });
 
-}
+};
+
+var gameUp = (req, res) => {
+  Account.AccountModel.findByUsername(req.session.account.username,(err,docs)=> {
+
+    if(err && console.log(err)){
+      return res.status(400).json({error: "Could not find player"});
+    }
+    req.body.win ? docs.wins++ : docs.lose ++;
+
+    docs.save( err=>{
+      return res.json({err:err});
+    });
+
+    return res.json({redirect: '/lounge'});
+  });
+};
 
 module.exports.logout = logout;
 module.exports.lounge = loungePage;
@@ -93,3 +109,4 @@ module.exports.leaders = leaderPage;
 module.exports.game = gamePage;
 module.exports.login = login;
 module.exports.signup = signup;
+module.exports.gameUpdate = gameUp;

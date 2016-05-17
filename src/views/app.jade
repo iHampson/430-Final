@@ -4,11 +4,14 @@ block append body
 
   .hero-content
     - var name = info.username
-    div(id = name).container: canvas#host(width="300px", height="300px", data-name= name)
+    div(id = name).container
+      canvas#host(width="300px", height="300px", data-name= name)
+      canvas#source.is-hidden(width="150px", height="150px")
 
     #viewing.tile.is-ancestor
       h3.title.is-3(id='waiting', style={'user-select': 'none', '-webkit-user-select': 'none'}) Waiting for opponents
-
-  block scripts
+      
+  input#csrf(type="hidden", name="_csrf", value="#{csrfToken}")
+  block append scripts
   script(src="/socket.io/socket.io.js")
   script(src="/assets/game.js")

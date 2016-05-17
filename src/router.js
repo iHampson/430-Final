@@ -13,6 +13,7 @@ var router = (app) => {
 
   app.post('/login', controllers.Account.login);
   app.post('/signup', controllers.Account.signup);
+  app.post('/game', controllers.Account.gameUpdate);
 
 };
 
